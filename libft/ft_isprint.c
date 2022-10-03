@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleike <nlalleik@students.42wolfsbur    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/11/17 06:35:56 by nlalleik          #+#    #+#             */
+/*   Updated: 2021/11/28 18:20:45 by nlalleike        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+int	ft_isprint(int c)
+{
+	int	isprint;
 
-//client functions
-char	*binval(int c);
+	isprint = 0;
+	if (c >= 32 && c < 127)
+	{
+		isprint = 1;
+	}
+	return (isprint);
+}

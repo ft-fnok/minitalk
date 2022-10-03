@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/12/06 08:32:23 by nlalleik          #+#    #+#             */
+/*   Updated: 2021/12/07 15:51:41 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+#include "libft.h"
 
-//client functions
-char	*binval(int c);
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}

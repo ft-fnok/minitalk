@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleike <nlalleik@students.42wolfsbur    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/12/06 17:38:21 by nlalleik          #+#    #+#             */
+/*   Updated: 2021/12/08 22:44:41 by nlalleike        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+#include "libft.h"
 
-//client functions
-char	*binval(int c);
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (lst != NULL)
+	{
+		del(lst->content);
+		free(lst);
+	}
+}

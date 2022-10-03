@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleike <nlalleik@students.42wolfsbur    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/12/06 13:12:06 by nlalleik          #+#    #+#             */
+/*   Updated: 2021/12/09 15:29:18 by nlalleike        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+#include "libft.h"
 
-//client functions
-char	*binval(int c);
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+	}
+}

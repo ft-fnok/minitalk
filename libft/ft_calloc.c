@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/11/28 18:59:29 by nlalleik          #+#    #+#             */
+/*   Updated: 2021/12/19 22:38:13 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+#include "libft.h"
 
-//client functions
-char	*binval(int c);
+void	*ft_calloc(size_t nelem, size_t elsize)
+{
+	void	*c;
+
+	c = malloc(nelem * elsize);
+	if (c == NULL)
+		return (NULL);
+	ft_bzero(c, nelem * elsize);
+	return (c);
+}

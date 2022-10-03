@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/11/18 12:59:17 by nlalleike         #+#    #+#             */
+/*   Updated: 2021/12/17 22:35:44 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+int	ft_isdigit(int c)
+{
+	int	isdigit;
 
-//client functions
-char	*binval(int c);
+	isdigit = 0;
+	if (c >= '0' && c <= '9')
+	{
+		isdigit = 1;
+	}
+	return (isdigit);
+}
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char c;
+// 	c = ' ';
+// 	printf("%d", ft_isdigit(c));
+// 	return (0);
+// }

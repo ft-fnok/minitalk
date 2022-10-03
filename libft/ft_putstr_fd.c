@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleike <nlalleik@students.42wolfsbur    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 15:39:14 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 15:04:42 by nlalleik         ###   ########.fr       */
+/*   Created: 2021/11/30 21:33:13 by nlalleik          #+#    #+#             */
+/*   Updated: 2021/12/01 22:21:31 by nlalleike        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <stdio.h>
-#include "./libft/libft.h"
-#include "./printf/libftprintf.h"
+#include "libft.h"
 
-//client functions
-char	*binval(int c);
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+	size_t	s_len;
+
+	i = 0;
+	s_len = 0;
+	if (s)
+		s_len = ft_strlen(s);
+	while (i < s_len)
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
