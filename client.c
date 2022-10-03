@@ -6,11 +6,25 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:44:35 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 16:03:57 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:48:26 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+void	send(int pid, char *c)
+{
+	int n;
+
+	n = 0;
+	while (n < 8)
+	{
+		if (c[n] == '0')
+			kill(pid, SIGUSR1);
+		else if (c[n] == '1')
+			kill(pid, SIGUSR2);
+		n++;
+	}
+}
 
 char	*binval(int c)
 {	
@@ -43,11 +57,11 @@ char	*binval(int c)
 
 int main(int argc, char const *argv[])
 {
-	int pid;
-	int c_count;
-	int len;
+	int 	pid;
+	int 	c_count;
+	int 	len;
+	char	*c;
 
-	//g_s = ft_calloc((8 * ft_strlen(argv[2])) + 1, sizeof(char));
 	c_count = 0;
 	len = ft_strlen(argv[2]);
 	pid = ft_atoi(argv[1]);
@@ -57,12 +71,11 @@ int main(int argc, char const *argv[])
 	
 	while (c_count < len)
 	{
-		ft_printf("Bin: %s\n", binval(argv[2][c_count]));
-		//send(pid, binval(argv[2][c_count]));
+		c = binval(argv[2][c_count]);
+		ft_printf("Bin: %s\n", c);
+		send(pid, c);
+		free(c);
 		c_count++;
-		
 	}
-	//ft_printf("String to send: %s\n", g_s);
-	//free(g_s);
 	return (0);
 }
