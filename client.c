@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:44:35 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/03 16:48:26 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:05:18 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,30 @@ void	send(int pid, char *c)
 		else if (c[n] == '1')
 			kill(pid, SIGUSR2);
 		n++;
+		usleep(100);
 	}
 }
 
 char	*binval(int c)
-{	
-	unsigned int	i;		
+{
+	unsigned int	i;
 	int				count;
 	int				n;
 	char			*bin;
 	char			rev_bin[9];
-	
-	bin = ft_calloc(9, sizeof(char)); 
+
+	bin = ft_calloc(9, sizeof(char));
 	bin[8] = '\0';
 	rev_bin[8] = '\0';
 	i = 0;
 	count = c;
-	n = 0;	
+	n = 0;
 	while (n < 8)
-	{	
+	{
 		rev_bin[n] = (c % 2) + 48;
 		c /= 2;
 		n++;
-	}	
+	}
 	while (n > 0)
 	{
 		bin[i] = rev_bin[n - 1];
@@ -68,7 +69,7 @@ int main(int argc, char const *argv[])
 	ft_printf("PID received: %i\nNo. of args to print: %i\n", pid, (argc - 2));
 	ft_printf("Arg received: %s\n", argv[(argc - 1)]);
 	ft_printf("Len of string: %i\n", len);
-	
+
 	while (c_count < len)
 	{
 		c = binval(argv[2][c_count]);
