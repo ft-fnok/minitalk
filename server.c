@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:44:29 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 16:07:47 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:43:16 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sig_handler(int sig)
 	else if (sig == SIGINT)
 	{
 		ft_printf("Server terminated ... BYE!\n");
-		kill(getpid(), SIGTERM);
+		kill(getpid(), SIGQUIT);
 	}
 }
 

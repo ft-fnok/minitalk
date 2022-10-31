@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:55:00 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 17:39:56 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:46:40 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	transcribe(int sig, int mode)
 	if (count % 8 == 0)
 	{
 		mode = transliterator(c, count, i, mode);
-
 		count = 0;
 	}
 	return (mode);
