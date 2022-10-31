@@ -6,7 +6,7 @@
 #    By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/02 16:09:34 by nlalleik          #+#    #+#              #
-#    Updated: 2022/10/03 14:42:47 by nlalleik         ###   ########.fr        #
+#    Updated: 2022/10/31 13:44:07 by nlalleik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ PRINTF 	:=	./printf/libftprintf.a
 LIBFT 	:=	./libft/libft.a
 
 SRC_S 	:=	server.c \
+			server-functions.c\
 
 SRC_C	:=	client.c \
 
