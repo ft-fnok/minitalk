@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:55:00 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 18:18:24 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:22:09 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	safe_pid(int nbr)
 {
 	static int	run;
 	static char	*pid;
-	static char	pid[8];
 
 	if (!run)
 		run = 0;
