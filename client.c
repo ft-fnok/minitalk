@@ -6,11 +6,12 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:44:35 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 15:47:04 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:02:36 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
 void	confirmed(int sig)
 {
 	if (sig == SIGUSR2)
@@ -19,7 +20,7 @@ void	confirmed(int sig)
 
 void	send(int pid, char *c)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (n < 8)
@@ -39,7 +40,7 @@ void	send_signature(int pid)
 	char	*c;
 	char	*char_pid;
 	int		len;
-	
+
 	signal(SIGUSR2, confirmed);
 	char_pid = ft_itoa(getpid());
 	c_count = 0;
@@ -84,13 +85,13 @@ char	*binval(int c)
 	return (bin);
 }
 
-int main(int argc, char const *argv[])
+int	main(int argc, char const *argv[])
 {
-	int 	pid;
-	int 	c_count;
-	int 	len;
+	int		pid;
+	int		c_count;
+	int		len;
 	char	*c;
-	
+
 	if (argc < 3)
 	{
 		write(2, "Error: Nothing to send.\n", 24);
@@ -99,7 +100,6 @@ int main(int argc, char const *argv[])
 	c_count = 0;
 	len = ft_strlen(argv[2]);
 	pid = ft_atoi(argv[1]);
-
 	while (c_count < len)
 	{
 		c = binval(argv[2][c_count]);

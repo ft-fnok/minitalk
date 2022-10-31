@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:55:00 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 15:23:01 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:06:56 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	transcribe(int sig, int mode)
 {
-	static int 	count;
+	static int	count;
 	static char	*c;
 	int			nbr;
 	int			i;
 
-	if(c == NULL)
+	if (c == NULL)
 		c = ft_calloc(9, sizeof(char));
 	if (!count)
 		count = 0;
@@ -37,11 +37,11 @@ int	transcribe(int sig, int mode)
 	return (mode);
 }
 
-int transliterator(char *c, int count, int i, int mode)
+int	transliterator(char *c, int count, int i, int mode)
 {
 	int	bin;
-	int nbr;
-	
+	int	nbr;
+
 	nbr = 0;
 	bin = ft_atoi(c);
 	while (count > 0)
@@ -54,7 +54,7 @@ int transliterator(char *c, int count, int i, int mode)
 		}
 		else
 		{
-			nbr += (bin % 10) * i; 
+			nbr += (bin % 10) * i;
 			bin /= 10;
 			i *= 2;
 		}
@@ -62,14 +62,14 @@ int transliterator(char *c, int count, int i, int mode)
 	}
 	if (mode == 0)
 		return (writeout(nbr));
-	return (safe_pid(nbr));		
+	return (safe_pid(nbr));
 }
 
 int	safe_pid(int nbr)
 {
 	static int	run;
 	static char	*pid;
-	
+
 	if (!run)
 		run = 0;
 	if (run == 0)
@@ -86,7 +86,7 @@ int	safe_pid(int nbr)
 	return (1);
 }
 
-void collector(int sig, int count, char *c)
+void	collector(int sig, int count, char *c)
 {
 	if (sig == SIGUSR1)
 		c[count] = '0';
@@ -94,15 +94,15 @@ void collector(int sig, int count, char *c)
 		c[count] = '1';
 }
 
-int writeout(int nbr)
+int	writeout(int nbr)
 {
 	int	mode;
-	
+
 	mode = 0;
 	if (nbr == 0)
 	{
 		nbr = '\n';
-		mode = 1;	
+		mode = 1;
 	}
 	write(1, &nbr, 1);
 	return (mode);
