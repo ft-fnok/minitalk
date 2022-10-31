@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:44:35 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 17:23:15 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:34:12 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	send(int pid, char *c)
 		else if (c[n] == '1')
 			kill(pid, SIGUSR2);
 		n++;
-		usleep(200);
+		usleep(150);
 	}
 }
 

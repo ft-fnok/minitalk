@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:55:00 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 16:06:56 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:39:56 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 int	transcribe(int sig, int mode)
 {
 	static int	count;
-	static char	*c;
+	static char	c[9];
 	int			nbr;
 	int			i;
 
-	if (c == NULL)
-		c = ft_calloc(9, sizeof(char));
 	if (!count)
 		count = 0;
 	i = 0;
@@ -30,8 +28,7 @@ int	transcribe(int sig, int mode)
 	if (count % 8 == 0)
 	{
 		mode = transliterator(c, count, i, mode);
-		free(c);
-		c = NULL;
+
 		count = 0;
 	}
 	return (mode);
@@ -68,18 +65,15 @@ int	transliterator(char *c, int count, int i, int mode)
 int	safe_pid(int nbr)
 {
 	static int	run;
-	static char	*pid;
+	static char	pid[8];
 
 	if (!run)
 		run = 0;
-	if (run == 0)
-		pid = ft_calloc(8, sizeof(char));
 	pid[run] = nbr;
 	if (nbr == 0)
 	{
 		kill(ft_atoi(pid), SIGUSR2);
 		run = 0;
-		free(pid);
 		return (0);
 	}
 	run++;
