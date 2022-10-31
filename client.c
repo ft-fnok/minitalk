@@ -6,7 +6,7 @@
 /*   By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:44:35 by nlalleik          #+#    #+#             */
-/*   Updated: 2022/10/31 16:02:36 by nlalleik         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:23:15 by nlalleik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	send_signature(int pid)
 	{
 		c = binval(char_pid[c_count]);
 		send(pid, c);
-		free(c);
 		c_count++;
 	}
+	free(char_pid);
 	c = binval('\0');
 	send(pid, c);
 }
@@ -61,10 +61,9 @@ char	*binval(int c)
 	unsigned int	i;
 	int				count;
 	int				n;
-	char			*bin;
+	static char		bin[9];
 	char			rev_bin[9];
 
-	bin = ft_calloc(9, sizeof(char));
 	bin[8] = '\0';
 	rev_bin[8] = '\0';
 	i = 0;
@@ -89,7 +88,6 @@ int	main(int argc, char const *argv[])
 {
 	int		pid;
 	int		c_count;
-	int		len;
 	char	*c;
 
 	if (argc < 3)
@@ -98,13 +96,11 @@ int	main(int argc, char const *argv[])
 		return (0);
 	}
 	c_count = 0;
-	len = ft_strlen(argv[2]);
 	pid = ft_atoi(argv[1]);
-	while (c_count < len)
+	while (c_count < (int)ft_strlen(argv[2]))
 	{
 		c = binval(argv[2][c_count]);
 		send(pid, c);
-		free(c);
 		c_count++;
 	}
 	c = binval('\0');

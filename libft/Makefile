@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nlalleik <nlalleik@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: nlalleik <nlalleik@students.42wolfsburg.de +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 18:31:50 by nlalleik          #+#    #+#              #
-#    Updated: 2021/12/17 23:07:06 by nlalleik         ###   ########.fr        #
+#    Updated: 2022/10/31 16:25:09 by nlalleik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,11 +73,11 @@ all: $(NAME)
 # 	$(CC) -c $(CFLAGS) $(SRCS)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 bonus: $(BONOBJS)
 #	$(CC) -c $(CFLAGS) $(SRCS) $(BONFUNC)
-	ar rcs $(NAME) $(BONOBJS)
+	@ar rcs $(NAME) $(BONOBJS)
 
 clean: 
 	@rm -f $(OBJS) $(BONOBJS)
